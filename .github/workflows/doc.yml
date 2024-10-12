@@ -26,7 +26,7 @@ jobs:
     name: 'Docs'
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Register Sphinx problem matcher
       run: echo "::add-matcher::.github/problem-matchers/sphinx.json"
     - name: 'Install Dependencies'
@@ -40,7 +40,7 @@ jobs:
     - name: 'Build documentation'
       run: xvfb-run make -C Doc/ PYTHON=../python SPHINXOPTS="-q -W --keep-going -j4" doctest html
     - name: 'Upload'
-      uses: actions/upload-artifact@v2.2.3
+      uses: actions/upload-artifact@v3.1.2
       with:
         name: doc-html
         path: Doc/build/html
