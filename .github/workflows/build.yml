@@ -59,8 +59,8 @@ jobs:
     needs: check_source
     if: needs.check_source.outputs.run_tests == 'true'
     steps:
+      - uses: actions/setup-python@v4
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v2
       - name: Install Dependencies
         run: sudo ./.github/workflows/posix-deps-apt.sh
       - name: Build CPython
